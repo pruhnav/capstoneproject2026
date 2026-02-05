@@ -1,4 +1,3 @@
-repository "My project/VRLabellingProject@2475922500791@cloud"
+rep "My project/VRLabellingProject@2475922500791@cloud"
   path "/"
-    br "/main"
-    co "/main"
+    smartbranch "/main"
