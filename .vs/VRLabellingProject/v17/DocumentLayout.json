@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\prana\\VRLabellingProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\prana\\VRLabellingProject\\Assets\\Sketchfab For Unity\\Scripts\\SketchfabImporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Sketchfab For Unity\\Scripts\\SketchfabImporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\prana\\VRLabellingProject\\Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\EventSystem\\InputModules\\BaseInput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\EventSystem\\InputModules\\BaseInput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,19 +27,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SketchfabImporter.cs",
-              "DocumentMoniker": "C:\\Users\\prana\\VRLabellingProject\\Assets\\Sketchfab For Unity\\Scripts\\SketchfabImporter.cs",
-              "RelativeDocumentMoniker": "Assets\\Sketchfab For Unity\\Scripts\\SketchfabImporter.cs",
-              "ToolTip": "C:\\Users\\prana\\VRLabellingProject\\Assets\\Sketchfab For Unity\\Scripts\\SketchfabImporter.cs",
-              "RelativeToolTip": "Assets\\Sketchfab For Unity\\Scripts\\SketchfabImporter.cs",
-              "ViewState": "AgIAAK4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T05:40:36.901Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "BaseInput.cs",
               "DocumentMoniker": "C:\\Users\\prana\\VRLabellingProject\\Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\EventSystem\\InputModules\\BaseInput.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\EventSystem\\InputModules\\BaseInput.cs",
@@ -56,7 +39,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "CloudModelLoader.cs",
               "DocumentMoniker": "C:\\Users\\prana\\VRLabellingProject\\Assets\\CloudModelLoader.cs",
               "RelativeDocumentMoniker": "Assets\\CloudModelLoader.cs",
@@ -64,11 +47,12 @@
               "RelativeToolTip": "Assets\\CloudModelLoader.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-05T15:59:48.341Z"
+              "WhenOpened": "2026-02-05T15:59:48.341Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "DriveButtons.cs",
               "DocumentMoniker": "C:\\Users\\prana\\VRLabellingProject\\Assets\\Scripts\\DriveButtons.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\DriveButtons.cs",
