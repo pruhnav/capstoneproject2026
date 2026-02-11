@@ -1,0 +1,381 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 88,
+      "max": [
+        2.3560001850128174,
+        10.311429023742676,
+        0.3475528955459595
+      ],
+      "min": [
+        -2.355825185775757,
+        1.2213431596755981,
+        -0.3475528657436371
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 1056,
+      "componentType": 5126,
+      "count": 88,
+      "max": [
+        1.0,
+        0.0,
+        0.9510567784309387
+      ],
+      "min": [
+        -1.0,
+        -8.69593375085742e-09,
+        -0.9510565996170044
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 88,
+      "max": [
+        5.561808436027604e-08,
+        1.0,
+        5.7919599782962905e-08,
+        1.0
+      ],
+      "min": [
+        -5.64869679919866e-08,
+        1.0,
+        -5.792032808926706e-08,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 88,
+      "max": [
+        0.9866394996643066,
+        0.9629860520362854
+      ],
+      "min": [
+        0.007926344871520996,
+        0.9297144412994385
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 240,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 2112,
+      "componentType": 5126,
+      "count": 54,
+      "max": [
+        2.601778030395508,
+        1.2948435544967651,
+        0.5
+      ],
+      "min": [
+        -2.601778030395508,
+        -1.2948435544967651,
+        -0.5
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 2760,
+      "componentType": 5126,
+      "count": 54,
+      "max": [
+        0.9998775720596313,
+        0.9999717473983765,
+        1.0
+      ],
+      "min": [
+        -0.9998775720596313,
+        -0.9999717473983765,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 1408,
+      "componentType": 5126,
+      "count": 54,
+      "max": [
+        0.7071064710617065,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -0.6972476243972778,
+        -1.0,
+        -1.0,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 704,
+      "componentType": 5126,
+      "count": 54,
+      "max": [
+        0.8763217926025391,
+        0.8792324066162109
+      ],
+      "min": [
+        0.0004995006020180881,
+        0.0004393964190967381
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 960,
+      "componentType": 5125,
+      "count": 144,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "𝘊𝘰𝘥𝘺 𝘈𝘯𝘥𝘦𝘳𝘴𝘰𝘯 (https://sketchfab.com/cody_anderson)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/exit-sign-free-background-prop-439d512e33ae4feabf75b47f47a6ec7a",
+      "title": "Exit Sign - FREE Background Prop"
+    },
+    "generator": "Sketchfab-12.68.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 1536,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1136,
+      "byteOffset": 1536,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 3408,
+      "byteOffset": 2672,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 2272,
+      "byteOffset": 6080,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 8352,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/lambert1_baseColor.png"
+    },
+    {
+      "uri": "textures/lambert1_emissive.png"
+    },
+    {
+      "uri": "textures/lambert1_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissiveTexture": {
+        "index": 1
+      },
+      "name": "lambert1",
+      "normalTexture": {
+        "index": 2
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.1724466463,
+        "roughnessFactor": 0.6846417683
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Cables_lambert1_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Sign_lambert1_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TANGENT": 7,
+            "TEXCOORD_0": 8
+          },
+          "indices": 9,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        0.0,
+        -2.220446049250313e-16,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        -1.817900056266808e-06,
+        -4.963141230609811e-22,
+        2.235200099676149e-06,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "f51c5b26368942cead075bb65b98d238.fbx"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4,
+        6
+      ],
+      "name": "ExitSign2"
+    },
+    {
+      "children": [
+        5
+      ],
+      "name": "Cables"
+    },
+    {
+      "mesh": 0,
+      "name": "Cables_lambert1_0"
+    },
+    {
+      "children": [
+        7
+      ],
+      "name": "Sign"
+    },
+    {
+      "mesh": 1,
+      "name": "Sign_lambert1_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}
