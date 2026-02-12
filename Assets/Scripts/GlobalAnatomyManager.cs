@@ -1,12 +1,11 @@
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit; // This is the most important line!
 
 public class GlobalAnatomyManager : MonoBehaviour
 {
-    // This specific "SelectEnterEventArgs" version is what the VR controller needs
+    // The "SelectEnterEventArgs" tells Unity this is for VR clicking
     public void MakeGlow(SelectEnterEventArgs args)
     {
-        // This finds the specific pin the professor just clicked
         GameObject clickedObject = args.interactableObject.transform.gameObject;
 
         if (clickedObject != null)
@@ -14,7 +13,7 @@ public class GlobalAnatomyManager : MonoBehaviour
             var renderer = clickedObject.GetComponentInChildren<Renderer>();
             if (renderer != null)
             {
-                // Forces it to stay visible through the anatomy
+                // Forces the pin to be seen through the hand model
                 renderer.material.renderQueue = 4000;
             }
         }
