@@ -1,389 +1,270 @@
 using System;
-using System.Collections;
-using System.IO;
-using System.Text;
 using UnityEngine;
-using UnityEngine.Networking;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-#if UNITY_EDITOR
-using UnityEditor;
-using UnityEditor.SceneManagement;
-#endif
-
-public class ExportSceneToMongoButton : MonoBehaviour
+public class ExportScenetoMongoDB : MonoBehaviour
 {
-    [Header("Mongo / Endpoint (use Atlas Data API or your own REST-to-Mongo proxy)")]
-    [Tooltip("HTTP endpoint that accepts JSON { \"filename\": string, \"contentBase64\": string }")]
-    public string mongoUploadUrl = "https://your-mongo-rest-endpoint.example.com/upload";
+    [Header("Optional - assign in Inspector")]
+    public Button exportButton; // Optional - will try to find "Button_ExportDB" if null
+    public GameObject popupPanel; // Optional - will be created at runtime if null
+    public InputField nameInput;
+    public Button saveButton;
+    public Button cancelButton;
 
-    [Tooltip("Optional API key header name/value - set apiKeyHeaderName empty when not used")]
-    public string apiKeyHeaderName = "api-key";
-    public string apiKey = "";
-
-    // Call this method from your UI Button OnClick
-    public void OnPressed_ShowRenameAndExportPopup()
+    void Start()
     {
-#if UNITY_EDITOR
-        ShowRenamePopup();
-#else
-        Debug.LogWarning("Export to Mongo is editor-only. Attach and run inside the Unity Editor.");
-#endif
+        // Find the export trigger button by name if not assigned
+        if (exportButton == null)
+        {
+            var go = GameObject.Find("Button_ExportDB");
+            if (go != null) exportButton = go.GetComponent<Button>();
+        }
+
+        if (exportButton == null)
+        {
+            Debug.LogWarning("ExportScenetoMongoDB: No export button found. Assign 'exportButton' or add a GameObject named 'Button_ExportDB' with a Button component.");
+        }
+        else
+        {
+            exportButton.onClick.AddListener(OnExportButtonClicked);
+        }
+
+        // If popup controls are missing, try to find them under a popup GameObject
+        if (popupPanel == null)
+        {
+            var foundPanel = GameObject.Find("Popup_ExportDB");
+            if (foundPanel != null) popupPanel = foundPanel;
+        }
+
+        if (popupPanel != null)
+        {
+            // try to locate child components if not assigned
+            if (nameInput == null) nameInput = popupPanel.GetComponentInChildren<InputField>();
+            if (saveButton == null) saveButton = popupPanel.GetComponentInChildren<Button>(true); // may pick first button; below we rewire explicitly if multiple
+            // Better to find by names if present
+            var saveGo = popupPanel.transform.Find("SaveButton");
+            if (saveGo != null) saveButton = saveGo.GetComponent<Button>();
+            var cancelGo = popupPanel.transform.Find("CancelButton");
+            if (cancelGo != null) cancelButton = cancelGo.GetComponent<Button>();
+        }
+
+        // If still missing UI, create a minimal popup UI under existing Canvas
+        if (popupPanel == null || nameInput == null || saveButton == null || cancelButton == null)
+        {
+            CreatePopupUI();
+        }
+
+        // Configure popup initial state and listeners
+        popupPanel.SetActive(false);
+        nameInput.onValueChanged.AddListener(OnNameValueChanged);
+        saveButton.onClick.AddListener(OnSaveClicked);
+        if (cancelButton != null) cancelButton.onClick.AddListener(ClosePopup);
+        ValidateSaveButton();
     }
 
-#if UNITY_EDITOR
-    void ShowRenamePopup()
+    void OnExportButtonClicked()
     {
-        // Build a small runtime popup UI so it's one-file and easy to wire up.
-        // Create Canvas
-        var canvasGO = new GameObject("ExportScenePopup_Canvas");
-        var canvas = canvasGO.AddComponent<Canvas>();
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        canvasGO.AddComponent<CanvasScaler>();
-        canvasGO.AddComponent<GraphicRaycaster>();
+        // Pre-fill input with scene name to help user
+        try
+        {
+            nameInput.text = SceneManager.GetActiveScene().name;
+        }
+        catch
+        {
+            nameInput.text = "ExportedScene";
+        }
 
-        // Blocker background
-        var blocker = CreateUIObject("Blocker", canvasGO.transform);
-        var blockerImg = blocker.AddComponent<Image>();
-        blockerImg.color = new Color(0, 0, 0, 0.45f);
-        SetRect(blocker, Vector2.zero, Vector2.one, Vector2.zero);
-        blocker.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        popupPanel.SetActive(true);
+        nameInput.Select();
+        nameInput.ActivateInputField();
+    }
 
-        // Panel
-        var panel = CreateUIObject("Panel", canvasGO.transform);
-        var panelImg = panel.AddComponent<Image>();
-        panelImg.color = new Color(0.96f, 0.96f, 0.96f, 1f);
-        var panelRT = panel.GetComponent<RectTransform>();
-        panelRT.sizeDelta = new Vector2(520, 180);
-        panelRT.anchorMin = new Vector2(0.5f, 0.5f);
-        panelRT.anchorMax = panelRT.anchorMin;
-        panelRT.pivot = new Vector2(0.5f, 0.5f);
-        panelRT.anchoredPosition = Vector2.zero;
+    void OnNameValueChanged(string s)
+    {
+        ValidateSaveButton();
+    }
 
-        // Title
-        var title = CreateText("Title", panel.transform, "Please Rename File before Exporting", 18, TextAnchor.UpperCenter);
-        var titleRT = title.GetComponent<RectTransform>();
-        titleRT.anchoredPosition = new Vector2(0, -12);
-        titleRT.sizeDelta = new Vector2(480, 28);
+    void ValidateSaveButton()
+    {
+        saveButton.interactable = !string.IsNullOrWhiteSpace(nameInput.text);
+    }
 
-        // Input label
-        var label = CreateText("Label", panel.transform, "New scene name:", 14, TextAnchor.MiddleLeft);
-        var labelRT = label.GetComponent<RectTransform>();
-        labelRT.anchoredPosition = new Vector2(-160, -50);
-        labelRT.sizeDelta = new Vector2(300, 24);
+    void OnSaveClicked()
+    {
+        var exportName = nameInput.text.Trim();
+        if (string.IsNullOrEmpty(exportName))
+        {
+            Debug.LogWarning("Export name is empty. Save aborted.");
+            return;
+        }
 
-        // Input Field
-        var inputGO = CreateUIObject("NameInput", panel.transform);
-        var inputImg = inputGO.AddComponent<Image>();
-        inputImg.color = Color.white;
-        var inputRT = inputGO.GetComponent<RectTransform>();
-        inputRT.sizeDelta = new Vector2(420, 32);
-        inputRT.anchoredPosition = new Vector2(0, -50);
+        // Call the export logic (placeholder). Replace this with actual MongoDB export implementation.
+        ExportToMongoDB(exportName);
 
-        var inputField = inputGO.AddComponent<InputField>();
-        inputField.textComponent = CreateText("InputText", inputGO.transform, "", 14, TextAnchor.MiddleLeft).GetComponent<Text>();
-        inputField.placeholder = CreateText("Placeholder", inputGO.transform, "Enter new scene name", 14, TextAnchor.MiddleLeft).GetComponent<Text>();
-        var inputTextRT = inputField.textComponent.GetComponent<RectTransform>();
-        inputTextRT.anchorMin = new Vector2(0, 0);
-        inputTextRT.anchorMax = new Vector2(1, 1);
-        inputTextRT.sizeDelta = Vector2.zero;
-        inputTextRT.anchoredPosition = Vector2.zero;
+        ClosePopup();
+    }
 
-        // Prefill with current scene name (without extension)
-        var activeScene = EditorSceneManager.GetActiveScene();
-        var currentName = string.IsNullOrEmpty(activeScene.path) ? "NewScene" : Path.GetFileNameWithoutExtension(activeScene.path);
-        inputField.text = currentName;
+    void ClosePopup()
+    {
+        popupPanel.SetActive(false);
+    }
+
+    void ExportToMongoDB(string name)
+    {
+        // TODO: integrate real export code here.
+        // This is a placeholder to show where you'd call your MongoDB export routine.
+        Debug.Log($"Exporting scene as '{name}' to MongoDB (placeholder).");
+    }
+
+    // Creates a simple popup UI at runtime when not provided in the scene.
+    void CreatePopupUI()
+    {
+        // Find or create a Canvas
+        Canvas canvas = FindObjectOfType<Canvas>();
+        if (canvas == null)
+        {
+            var canvasGO = new GameObject("Canvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
+            canvas = canvasGO.GetComponent<Canvas>();
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        }
+
+        // Create panel
+        popupPanel = new GameObject("Popup_ExportDB", typeof(RectTransform), typeof(Image));
+        popupPanel.transform.SetParent(canvas.transform, false);
+        var panelImage = popupPanel.GetComponent<Image>();
+        panelImage.color = new Color(0f, 0f, 0f, 0.75f);
+
+        var panelRect = popupPanel.GetComponent<RectTransform>();
+        panelRect.anchorMin = new Vector2(0.5f, 0.5f);
+        panelRect.anchorMax = new Vector2(0.5f, 0.5f);
+        panelRect.sizeDelta = new Vector2(360, 160);
+        panelRect.anchoredPosition = Vector2.zero;
+
+        // Title text
+        var titleGO = new GameObject("Title", typeof(RectTransform), typeof(Text));
+        titleGO.transform.SetParent(popupPanel.transform, false);
+        var titleText = titleGO.GetComponent<Text>();
+        titleText.text = "Export - Enter name";
+        titleText.alignment = TextAnchor.UpperCenter;
+        titleText.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        titleText.color = Color.white;
+        var titleRect = titleGO.GetComponent<RectTransform>();
+        titleRect.anchorMin = new Vector2(0f, 1f);
+        titleRect.anchorMax = new Vector2(1f, 1f);
+        titleRect.pivot = new Vector2(0.5f, 1f);
+        titleRect.anchoredPosition = new Vector2(0, -10);
+        titleRect.sizeDelta = new Vector2(0, 24);
+
+        // Input field background
+        var inputBg = new GameObject("InputBG", typeof(RectTransform), typeof(Image));
+        inputBg.transform.SetParent(popupPanel.transform, false);
+        var bgImage = inputBg.GetComponent<Image>();
+        bgImage.color = Color.white * 0.1f;
+        var inputBgRect = inputBg.GetComponent<RectTransform>();
+        inputBgRect.anchorMin = new Vector2(0.05f, 0.55f);
+        inputBgRect.anchorMax = new Vector2(0.95f, 0.75f);
+        inputBgRect.anchoredPosition = Vector2.zero;
+        inputBgRect.sizeDelta = Vector2.zero;
+
+        // InputField (requires a child Text for the placeholder/text)
+        var inputGO = new GameObject("NameInput", typeof(RectTransform), typeof(Image), typeof(InputField));
+        inputGO.transform.SetParent(inputBg.transform, false);
+        var inputImage = inputGO.GetComponent<Image>();
+        inputImage.color = Color.white * 0.0f; // transparent so background shows
+        var inputRect = inputGO.GetComponent<RectTransform>();
+        inputRect.anchorMin = new Vector2(0f, 0f);
+        inputRect.anchorMax = new Vector2(1f, 1f);
+        inputRect.sizeDelta = Vector2.zero;
+
+        nameInput = inputGO.GetComponent<InputField>();
+        nameInput.textComponent = CreateText("InputText", inputGO.transform, "", TextAnchor.MiddleLeft, 14);
+        nameInput.placeholder = CreateText("Placeholder", inputGO.transform, "Enter export name...", TextAnchor.MiddleLeft, 14, Color.gray);
+        nameInput.transition = Selectable.Transition.None;
+
+        // Buttons container
+        var buttonsGO = new GameObject("Buttons", typeof(RectTransform));
+        buttonsGO.transform.SetParent(popupPanel.transform, false);
+        var buttonsRect = buttonsGO.GetComponent<RectTransform>();
+        buttonsRect.anchorMin = new Vector2(0f, 0f);
+        buttonsRect.anchorMax = new Vector2(1f, 0.4f);
+        buttonsRect.pivot = new Vector2(0.5f, 0f);
+        buttonsRect.anchoredPosition = new Vector2(0, 10);
+        buttonsRect.sizeDelta = Vector2.zero;
 
         // Save Button
-        var saveBtn = CreateButton("Save", panel.transform, "Save");
-        var saveRT = saveBtn.GetComponent<RectTransform>();
-        saveRT.anchoredPosition = new Vector2(-80, -100);
-        saveRT.sizeDelta = new Vector2(140, 36);
+        var saveGO = CreateButton("SaveButton", buttonsGO.transform, "Save");
+        saveButton = saveGO.GetComponent<Button>();
+        var saveRect = saveGO.GetComponent<RectTransform>();
+        saveRect.anchorMin = new Vector2(0.55f, 0.1f);
+        saveRect.anchorMax = new Vector2(0.95f, 0.9f);
+        saveRect.sizeDelta = Vector2.zero;
 
         // Cancel Button
-        var cancelBtn = CreateButton("Cancel", panel.transform, "Cancel");
-        var cancelRT = cancelBtn.GetComponent<RectTransform>();
-        cancelRT.anchoredPosition = new Vector2(120, -100);
-        cancelRT.sizeDelta = new Vector2(140, 36);
+        var cancelGO = CreateButton("CancelButton", buttonsGO.transform, "Cancel");
+        cancelButton = cancelGO.GetComponent<Button>();
+        var cancelRect = cancelGO.GetComponent<RectTransform>();
+        cancelRect.anchorMin = new Vector2(0.05f, 0.1f);
+        cancelRect.anchorMax = new Vector2(0.45f, 0.9f);
+        cancelRect.sizeDelta = Vector2.zero;
 
-        // Status Text
-        var status = CreateText("Status", panel.transform, "", 13, TextAnchor.MiddleCenter);
-        var statusRT = status.GetComponent<RectTransform>();
-        statusRT.anchoredPosition = new Vector2(0, -140);
-        statusRT.sizeDelta = new Vector2(480, 20);
-
-        // Hook actions
-        saveBtn.onClick.AddListener(() =>
-        {
-            var newName = inputField.text?.Trim();
-            if (string.IsNullOrWhiteSpace(newName))
-            {
-                status.text = "Name cannot be empty.";
-                return;
-            }
-
-            saveBtn.interactable = false;
-            cancelBtn.interactable = false;
-            status.text = "Renaming and uploading...";
-
-            // Perform rename/save then upload
-            EditorApplication.delayCall += () =>
-            {
-                try
-                {
-                    string finalPath = RenameAndSaveActiveScene(newName, out string renameMessage);
-                    status.text = renameMessage + " Preparing upload...";
-                    // Read file bytes and start upload coroutine from EditorApplication update via a helper GameObject
-                    var helper = new GameObject("ExportHelper");
-                    var uploader = helper.AddComponent<EditorUploadHelper>();
-                    uploader.Init(finalPath, Path.GetFileName(finalPath), mongoUploadUrl, apiKeyHeaderName, apiKey, (success, msg) =>
-                    {
-                        status.text = msg;
-                        if (success)
-                        {
-                            EditorApplication.delayCall += () => UnityEngine.Object.DestroyImmediate(canvasGO);
-                            EditorApplication.delayCall += () => UnityEngine.Object.DestroyImmediate(helper);
-                        }
-                        else
-                        {
-                            saveBtn.interactable = true;
-                            cancelBtn.interactable = true;
-                        }
-                    });
-                }
-                catch (Exception ex)
-                {
-                    status.text = "Error: " + ex.Message;
-                    saveBtn.interactable = true;
-                    cancelBtn.interactable = true;
-                }
-            };
-        });
-
-        cancelBtn.onClick.AddListener(() =>
-        {
-            UnityEngine.Object.DestroyImmediate(canvasGO);
-        });
+        // Visual polish: colors
+        ApplyButtonColors(saveButton, new Color(0.2f, 0.6f, 0.2f));
+        ApplyButtonColors(cancelButton, new Color(0.6f, 0.2f, 0.2f));
     }
 
-    // Renames (or saves) the active scene asset on disk and returns the absolute path to the saved scene file.
-    string RenameAndSaveActiveScene(string newName, out string message)
+    Text CreateText(string name, Transform parent, string text, TextAnchor align, int fontSize, Color? color = null)
     {
-        var scene = EditorSceneManager.GetActiveScene();
-        var oldPath = scene.path; // may be empty for unsaved scene
-        var rootFolder = Directory.GetParent(Application.dataPath).FullName; // project root full path
-
-        if (string.IsNullOrEmpty(oldPath))
-        {
-            // unsaved scene: save to Assets/
-            var newRelative = $"Assets/{newName}.unity";
-            if (AssetDatabase.LoadAssetAtPath<SceneAsset>(newRelative) != null)
-            {
-                if (!EditorUtility.DisplayDialog("Overwrite Scene?", $"A scene exists at {newRelative}. Overwrite?", "Overwrite", "Cancel"))
-                {
-                    message = "Cancelled by user.";
-                    return null;
-                }
-            }
-
-            bool saved = EditorSceneManager.SaveScene(scene, newRelative);
-            AssetDatabase.Refresh();
-            message = saved ? $"Saved new scene as {newRelative}." : $"Failed to save scene to {newRelative}.";
-            return saved ? Path.Combine(rootFolder, newRelative).Replace("\\", "/") : null;
-        }
-
-        var dir = Path.GetDirectoryName(oldPath).Replace("\\", "/");
-        var newRelativePath = Path.Combine(dir, newName + ".unity").Replace("\\", "/");
-
-        if (string.Equals(oldPath, newRelativePath, StringComparison.OrdinalIgnoreCase))
-        {
-            // just save current scene
-            bool ok = EditorSceneManager.SaveScene(scene);
-            message = ok ? $"Scene saved ({oldPath})." : $"Failed to save ({oldPath}).";
-            return ok ? Path.Combine(rootFolder, oldPath).Replace("\\", "/") : null;
-        }
-
-        // If target exists ask for overwrite
-        if (AssetDatabase.LoadAssetAtPath<SceneAsset>(newRelativePath) != null)
-        {
-            if (!EditorUtility.DisplayDialog("Overwrite Scene Asset?", $"A scene already exists at {newRelativePath}. Overwrite?", "Overwrite", "Cancel"))
-            {
-                message = "Cancelled by user.";
-                return null;
-            }
-        }
-
-        string error = AssetDatabase.MoveAsset(oldPath, newRelativePath);
-        if (!string.IsNullOrEmpty(error))
-        {
-            message = "Failed to rename scene: " + error;
-            return null;
-        }
-
-        // Reopen to ensure Editor uses new path
-        var reopened = EditorSceneManager.OpenScene(newRelativePath, OpenSceneMode.Single);
-        bool savedOk = EditorSceneManager.SaveScene(reopened);
-        AssetDatabase.Refresh();
-        message = savedOk ? $"Scene renamed and saved as {newRelativePath}." : $"Renamed but failed to save as {newRelativePath}.";
-        return savedOk ? Path.Combine(rootFolder, newRelativePath).Replace("\\", "/") : null;
-    }
-
-    // Small utility: create UI GameObject with RectTransform
-    static GameObject CreateUIObject(string name, Transform parent)
-    {
-        var go = new GameObject(name, typeof(RectTransform));
+        var go = new GameObject(name, typeof(RectTransform), typeof(Text));
         go.transform.SetParent(parent, false);
+        var t = go.GetComponent<Text>();
+        t.text = text;
+        t.alignment = align;
+        t.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        t.fontSize = fontSize;
+        t.color = color ?? Color.white;
+        var rect = go.GetComponent<RectTransform>();
+        rect.anchorMin = new Vector2(0f, 0f);
+        rect.anchorMax = new Vector2(1f, 1f);
+        rect.sizeDelta = Vector2.zero;
+        rect.anchoredPosition = Vector2.zero;
+        return t;
+    }
+
+    GameObject CreateButton(string name, Transform parent, string label)
+    {
+        var go = new GameObject(name, typeof(RectTransform), typeof(Image), typeof(Button));
+        go.transform.SetParent(parent, false);
+        var img = go.GetComponent<Image>();
+        img.color = new Color(1f, 1f, 1f, 0.12f);
+
+        var btn = go.GetComponent<Button>();
+        btn.transition = Selectable.Transition.ColorTint;
+
+        var txt = CreateText("Text", go.transform, label, TextAnchor.MiddleCenter, 16);
+        txt.color = Color.white;
+
         return go;
     }
 
-    static Text CreateText(string name, Transform parent, string text, int fontSize, TextAnchor anchor)
+    void ApplyButtonColors(Button btn, Color baseColor)
     {
-        var go = CreateUIObject(name, parent);
-        var txt = go.AddComponent<Text>();
-        txt.text = text;
-        txt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
-        txt.fontSize = fontSize;
-        txt.alignment = anchor;
-        txt.color = Color.black;
-        var rt = go.GetComponent<RectTransform>();
-        rt.sizeDelta = new Vector2(400, 24);
-        return txt;
+        var colors = btn.colors;
+        colors.normalColor = baseColor;
+        colors.highlightedColor = baseColor + new Color(0.1f, 0.1f, 0.1f);
+        colors.pressedColor = baseColor - new Color(0.1f, 0.1f, 0.1f);
+        btn.colors = colors;
     }
 
-    static Button CreateButton(string name, Transform parent, string caption)
+    void OnDestroy()
     {
-        var go = CreateUIObject(name, parent);
-        var img = go.AddComponent<Image>();
-        img.color = new Color(0.22f, 0.5f, 0.9f, 1f);
-        var btn = go.AddComponent<Button>();
-        var txt = CreateText("Text", go.transform, caption, 14, TextAnchor.MiddleCenter);
-        txt.color = Color.white;
-        return btn;
+        if (exportButton != null)
+            exportButton.onClick.RemoveListener(OnExportButtonClicked);
+        if (saveButton != null)
+            saveButton.onClick.RemoveListener(OnSaveClicked);
+        if (cancelButton != null)
+            cancelButton.onClick.RemoveListener(ClosePopup);
+        if (nameInput != null)
+            nameInput.onValueChanged.RemoveListener(OnNameValueChanged);
     }
-
-    static void SetRect(GameObject go, Vector2 anchorMin, Vector2 anchorMax, Vector2 anchoredPos)
-    {
-        var rt = go.GetComponent<RectTransform>();
-        rt.anchorMin = anchorMin;
-        rt.anchorMax = anchorMax;
-        rt.pivot = new Vector2(0.5f, 0.5f);
-        rt.offsetMin = Vector2.zero;
-        rt.offsetMax = Vector2.zero;
-        rt.anchoredPosition = anchoredPos;
-    }
-
-    // Helper MonoBehaviour to run coroutine from Editor context (still runs in play mode in editor)
-    class EditorUploadHelper : MonoBehaviour
-    {
-        string absoluteFilePath;
-        string fileName;
-        string uploadUrl;
-        string headerName;
-        string headerValue;
-        Action<bool, string> callback;
-
-        public void Init(string absolutePath, string fileName, string uploadUrl, string headerName, string headerValue, Action<bool, string> finished)
-        {
-            this.absoluteFilePath = absolutePath;
-            this.fileName = fileName;
-            this.uploadUrl = uploadUrl;
-            this.headerName = headerName;
-            this.headerValue = headerValue;
-            this.callback = finished;
-            DontDestroyOnLoad(gameObject);
-            StartCoroutine(DoReadAndUpload());
-        }
-
-        IEnumerator DoReadAndUpload()
-        {
-            if (string.IsNullOrEmpty(absoluteFilePath) || !File.Exists(absoluteFilePath))
-            {
-                callback?.Invoke(false, "Scene file not found: " + absoluteFilePath);
-                yield break;
-            }
-
-            byte[] bytes;
-            try
-            {
-                bytes = File.ReadAllBytes(absoluteFilePath);
-            }
-            catch (Exception ex)
-            {
-                callback?.Invoke(false, "Failed to read scene file: " + ex.Message);
-                yield break;
-            }
-
-            string base64 = Convert.ToBase64String(bytes);
-            var payload = new JSONObject();
-            payload.AddField("filename", fileName);
-            payload.AddField("contentBase64", base64);
-
-            var json = payload.ToString();
-
-            using (var uwr = new UnityWebRequest(uploadUrl, "POST"))
-            {
-                byte[] bodyRaw = Encoding.UTF8.GetBytes(json);
-                uwr.uploadHandler = new UploadHandlerRaw(bodyRaw);
-                uwr.downloadHandler = new DownloadHandlerBuffer();
-                uwr.SetRequestHeader("Content-Type", "application/json");
-                if (!string.IsNullOrEmpty(headerName) && !string.IsNullOrEmpty(headerValue))
-                    uwr.SetRequestHeader(headerName, headerValue);
-
-                yield return uwr.SendWebRequest();
-
-#if UNITY_2020_1_OR_NEWER
-                bool isNetworkError = uwr.result == UnityWebRequest.Result.ConnectionError;
-                bool isHttpError = uwr.result == UnityWebRequest.Result.ProtocolError;
-#else
-                bool isNetworkError = uwr.isNetworkError;
-                bool isHttpError = uwr.isHttpError;
-#endif
-
-                if (isNetworkError || isHttpError)
-                {
-                    callback?.Invoke(false, $"Upload failed: {uwr.error} (code {(int)uwr.responseCode})");
-                }
-                else
-                {
-                    callback?.Invoke(true, $"Upload succeeded: {uwr.downloadHandler.text}");
-                }
-            }
-        }
-    }
-
-    // Minimal JSON builder to avoid external deps (keeps file self-contained).
-    // Very small helper to produce JSON with two string fields.
-    class JSONObject
-    {
-        System.Collections.Generic.Dictionary<string, string> _fields = new System.Collections.Generic.Dictionary<string, string>();
-
-        public void AddField(string key, string val)
-        {
-            _fields[key] = val ?? "";
-        }
-
-        public override string ToString()
-        {
-            var sb = new StringBuilder();
-            sb.Append('{');
-            bool first = true;
-            foreach (var kv in _fields)
-            {
-                if (!first) sb.Append(',');
-                first = false;
-                sb.Append('\"').Append(Escape(kv.Key)).Append("\":");
-                sb.Append('\"').Append(Escape(kv.Value)).Append('\"');
-            }
-            sb.Append('}');
-            return sb.ToString();
-        }
-
-        static string Escape(string s)
-        {
-            if (s == null) return "";
-            return s.Replace("\\", "\\\\").Replace("\"", "\\\"").Replace("\n", "\\n").Replace("\r", "\\r");
-        }
-    }
-#endif
 }
