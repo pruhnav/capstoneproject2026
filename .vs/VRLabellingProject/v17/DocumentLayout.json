@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\prana\\VRLabellingProject\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\prana\\VRLabellingProject\\Assets\\Scripts\\FaceCamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\FaceCamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\prana\\VRLabellingProject\\Assets\\Scripts\\LabelInteract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\LabelInteract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\prana\\VRLabellingProject\\Assets\\Scripts\\LabelController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\LabelController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -43,6 +51,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "FaceCamera.cs",
+              "DocumentMoniker": "C:\\Users\\prana\\VRLabellingProject\\Assets\\Scripts\\FaceCamera.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\FaceCamera.cs",
+              "ToolTip": "C:\\Users\\prana\\VRLabellingProject\\Assets\\Scripts\\FaceCamera.cs",
+              "RelativeToolTip": "Assets\\Scripts\\FaceCamera.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-19T23:30:01.805Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LabelInteract.cs",
+              "DocumentMoniker": "C:\\Users\\prana\\VRLabellingProject\\Assets\\Scripts\\LabelInteract.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LabelInteract.cs",
+              "ToolTip": "C:\\Users\\prana\\VRLabellingProject\\Assets\\Scripts\\LabelInteract.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LabelInteract.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAAcAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-19T23:28:18.375Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "LabelController.cs",
               "DocumentMoniker": "C:\\Users\\prana\\VRLabellingProject\\Assets\\Scripts\\LabelController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\LabelController.cs",
@@ -50,12 +83,11 @@
               "RelativeToolTip": "Assets\\Scripts\\LabelController.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-16T00:05:06.188Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-16T00:05:06.188Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "GlobalAnatomyManager.cs",
               "DocumentMoniker": "C:\\Users\\prana\\VRLabellingProject\\Assets\\Scripts\\GlobalAnatomyManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GlobalAnatomyManager.cs",
@@ -63,12 +95,11 @@
               "RelativeToolTip": "Assets\\Scripts\\GlobalAnatomyManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-16T00:05:00.143Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-16T00:05:00.143Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Billboard.cs",
               "DocumentMoniker": "C:\\Users\\prana\\VRLabellingProject\\Assets\\Scripts\\Billboard.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Billboard.cs",
@@ -80,7 +111,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "SimpleLabeler.cs",
               "DocumentMoniker": "C:\\Users\\prana\\VRLabellingProject\\Assets\\Scripts\\SimpleLabeler.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SimpleLabeler.cs",
@@ -91,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "BaseInput.cs",
               "DocumentMoniker": "C:\\Users\\prana\\VRLabellingProject\\Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\EventSystem\\InputModules\\BaseInput.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\EventSystem\\InputModules\\BaseInput.cs",
@@ -103,7 +134,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "CloudModelLoader.cs",
               "DocumentMoniker": "C:\\Users\\prana\\VRLabellingProject\\Assets\\CloudModelLoader.cs",
               "RelativeDocumentMoniker": "Assets\\CloudModelLoader.cs",
@@ -115,7 +146,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "DriveButtons.cs",
               "DocumentMoniker": "C:\\Users\\prana\\VRLabellingProject\\Assets\\Scripts\\DriveButtons.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\DriveButtons.cs",
