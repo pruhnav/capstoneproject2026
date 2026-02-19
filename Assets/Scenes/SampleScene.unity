@@ -455,6 +455,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CT_test_for_LabelingApp_NoLabels
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f1417b7f4eb4bca428612bcccf50e4f5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8765578039313461758, guid: f1417b7f4eb4bca428612bcccf50e4f5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
@@ -2974,7 +2978,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6689036041284674117, guid: 0fef8b5771d88ae4d88ca50173ddc9ec, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0fef8b5771d88ae4d88ca50173ddc9ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5783,7 +5787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6689036041284674117, guid: 654b9c99a0637564096734376e46f612, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 654b9c99a0637564096734376e46f612, type: 3}
       propertyPath: m_LocalScale.x
