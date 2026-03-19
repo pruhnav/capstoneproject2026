@@ -1,0 +1,12 @@
+ # Blender 4.5.0 MTL File: 'carpalTunnelHarrisburgTest.blend'
+# www.blender.org
+
+newmtl carpal_tunnel_9_23_25_secondShootv2
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd carpal_tunnel_Nolabels.jpg
