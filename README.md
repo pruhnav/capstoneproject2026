@@ -5,7 +5,7 @@ Students:
 Pranav Balachander - pranavb@psu.edu \
 Khush Mistry - kbm6102@psu.edu \
 Lasya Madhuri Gundapaneni - lasya@psu.edu \
-Yamini Satish - yamini@psu.edu \
+Yamini Satish - yamini@psu.edu 
 
 Advisor: 
 Dr.Sayed Mohsin Reza - skr6024@psu.edu
