@@ -1,7 +1,7 @@
 # Capstone Project 2026 - Group 212 
 GitHub Repository for Group 212 VR Labelling Application Capstone Project
 
-Students: 
+Students: \
 Pranav Balachander - pranavb@psu.edu \
 Khush Mistry - kbm6102@psu.edu \
 Lasya Madhuri Gundapaneni - lasya@psu.edu \
