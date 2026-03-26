@@ -1795,7 +1795,6 @@ GameObject:
   - component: {fileID: 4430923002026986672}
   - component: {fileID: 2227014778927454223}
   - component: {fileID: 1119314232207744753}
-  - component: {fileID: 8724051158439273142}
   m_Layer: 0
   m_Name: SRS_Label
   m_TagString: Untagged
@@ -1934,18 +1933,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRenderer: {fileID: 4291878832293073637}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
---- !u!114 &8724051158439273142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8383925483555007420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75862602cd38c8248b9aa2975fe643fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VRZoom
 --- !u!1 &8589481022243393254
 GameObject:
   m_ObjectHideFlags: 0
