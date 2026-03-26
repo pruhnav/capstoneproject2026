@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\PSU Libraries\\Documents\\GitHub\\capstoneproject2026\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PSU Libraries\\Documents\\GitHub\\capstoneproject2026\\Assets\\Scripts\\ARToggler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\ARToggler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PSU Libraries\\Documents\\GitHub\\capstoneproject2026\\Assets\\Scripts\\VRZoom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\VRZoom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -19,6 +23,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ARToggler.cs",
+              "DocumentMoniker": "C:\\Users\\PSU Libraries\\Documents\\GitHub\\capstoneproject2026\\Assets\\Scripts\\ARToggler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ARToggler.cs",
+              "ToolTip": "C:\\Users\\PSU Libraries\\Documents\\GitHub\\capstoneproject2026\\Assets\\Scripts\\ARToggler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ARToggler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T15:28:28.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "VRZoom.cs",
               "DocumentMoniker": "C:\\Users\\PSU Libraries\\Documents\\GitHub\\capstoneproject2026\\Assets\\Scripts\\VRZoom.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\VRZoom.cs",
