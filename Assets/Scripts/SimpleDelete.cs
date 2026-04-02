@@ -1,8 +1,5 @@
 using UnityEngine;
-public class SimpleDelete : MonoBehaviour
+public void DeleteThisLabel()
 {
-    public void DeletePin()
-    {
-        Destroy(gameObject);
-    }
+    Destroy(gameObject);
 }
