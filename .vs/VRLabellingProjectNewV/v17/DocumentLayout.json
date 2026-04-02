@@ -3,15 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\prana\\VRLabellingProjectNewV\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{956BE021-6C2B-EA18-1D76-8A1106B0A683}|Assembly-CSharp.csproj|C:\\Users\\prana\\VRLabellingProjectNewV\\assets\\scripts\\simpledelete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{956BE021-6C2B-EA18-1D76-8A1106B0A683}|Assembly-CSharp.csproj|c:\\users\\prana\\vrlabellingprojectnewv\\assets\\scripts\\simpledelete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{956BE021-6C2B-EA18-1D76-8A1106B0A683}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\simpledelete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{956BE021-6C2B-EA18-1D76-8A1106B0A683}|Assembly-CSharp.csproj|c:\\users\\prana\\vrlabellingprojectnewv\\assets\\scripts\\labelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{956BE021-6C2B-EA18-1D76-8A1106B0A683}|Assembly-CSharp.csproj|C:\\Users\\prana\\VRLabellingProjectNewV\\assets\\scripts\\labelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{956BE021-6C2B-EA18-1D76-8A1106B0A683}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\labelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{956BE021-6C2B-EA18-1D76-8A1106B0A683}|Assembly-CSharp.csproj|c:\\users\\prana\\vrlabellingprojectnewv\\assets\\scripts\\menufollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{956BE021-6C2B-EA18-1D76-8A1106B0A683}|Assembly-CSharp.csproj|C:\\Users\\prana\\VRLabellingProjectNewV\\assets\\scripts\\menufollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{956BE021-6C2B-EA18-1D76-8A1106B0A683}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\menufollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -34,8 +34,7 @@
               "RelativeToolTip": "Assets\\Scripts\\LabelController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-01T23:44:49.885Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-01T23:44:49.885Z"
             },
             {
               "$type": "Document",
@@ -47,8 +46,7 @@
               "RelativeToolTip": "Assets\\Scripts\\MenuFollow.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-01T00:36:05.946Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-01T00:36:05.946Z"
             },
             {
               "$type": "Document",
@@ -58,7 +56,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\SimpleDelete.cs",
               "ToolTip": "C:\\Users\\prana\\VRLabellingProjectNewV\\Assets\\Scripts\\SimpleDelete.cs",
               "RelativeToolTip": "Assets\\Scripts\\SimpleDelete.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-26T22:07:02.507Z",
               "EditorCaption": ""
