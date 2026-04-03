@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6764136144492220420}
   - component: {fileID: 1002139164891794102}
   - component: {fileID: 8058253647906865649}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 9218004577602414079}
   - component: {fileID: 372497418622297572}
   - component: {fileID: 2647441852003518051}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 7937330664762920189}
   - component: {fileID: 4717807021272454912}
   - component: {fileID: 3727034348153389776}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SearchInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,7 +449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9112410049842396465}
   - component: {fileID: 173696750010382330}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 2402284677492561433}
   - component: {fileID: 4291878832293073637}
   - component: {fileID: 1518650031474255501}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -613,7 +613,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7689934353780389704}
   - component: {fileID: 9149076544756349044}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -667,7 +667,7 @@ GameObject:
   - component: {fileID: 116635210416185972}
   - component: {fileID: 5169015309967540773}
   - component: {fileID: 6826953579108975869}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -824,7 +824,7 @@ GameObject:
   - component: {fileID: 1893422689024773398}
   - component: {fileID: 2386584829747492850}
   - component: {fileID: 2831232037625406283}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -964,7 +964,7 @@ GameObject:
   - component: {fileID: 2591988608364324043}
   - component: {fileID: 7617543815563928173}
   - component: {fileID: 2328423612094503401}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1105,7 +1105,7 @@ GameObject:
   - component: {fileID: 5103832442515448103}
   - component: {fileID: 7292530231782716546}
   - component: {fileID: 6782745946995118906}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1262,10 +1262,9 @@ GameObject:
   - component: {fileID: 4430923002026986672}
   - component: {fileID: 2227014778927454223}
   - component: {fileID: 1119314232207744753}
-  - component: {fileID: 7377881291927809065}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SRS_Label
-  m_TagString: Untagged
+  m_TagString: Label
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1401,18 +1400,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRenderer: {fileID: 4291878832293073637}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
---- !u!114 &7377881291927809065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8383925483555007420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c225e6227d6c0342b3f729fba08b2dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SimpleDelete
 --- !u!1 &8589481022243393254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,7 +1413,7 @@ GameObject:
   - component: {fileID: 3878094467032686172}
   - component: {fileID: 6366055276549321485}
   - component: {fileID: 8125955152682489893}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NoteInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}

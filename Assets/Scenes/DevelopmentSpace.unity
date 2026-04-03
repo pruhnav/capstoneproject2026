@@ -937,7 +937,6 @@ GameObject:
   - component: {fileID: 355920631}
   - component: {fileID: 355920630}
   - component: {fileID: 355920629}
-  - component: {fileID: 355920635}
   - component: {fileID: 355920634}
   m_Layer: 0
   m_Name: Left Controller
@@ -1796,19 +1795,20 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c225e6227d6c0342b3f729fba08b2dd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SimpleDelete
---- !u!114 &355920635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 355920627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c225e6227d6c0342b3f729fba08b2dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SimpleDelete
+  m_EditorClassIdentifier: Assembly-CSharp::ControllerDelete
+  deleteAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Delete
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: dc9ef7cb-10c6-47c1-a138-140736b72fb7
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  leftLaser: {fileID: 355920632}
 --- !u!1 &509347839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1884,7 +1884,7 @@ Transform:
   m_GameObject: {fileID: 519756863}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.0633, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5906,18 +5906,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1579077017320727948, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2227014778927454223, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 657226395}
+    - target: {fileID: 2559443370347674768, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2635014579441703602, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
-      propertyPath: m_Name
-      value: SearchInput
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900828362960223660, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3707559791905067493, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3918699497935927757, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1317862229}
+    - target: {fileID: 4219716903030342572, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4430923002026986672, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5958,13 +5978,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7292530231782716546, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
-      propertyPath: m_text
-      value: Search Term
+    - target: {fileID: 5468078804579667787, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 7292530231782716546, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
-      propertyPath: m_fontStyle
-      value: 0
+    - target: {fileID: 5981559548808063729, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6834557529161858251, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7558833620983243402, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
       propertyPath: m_AnchorMax.y
@@ -5989,6 +6013,10 @@ PrefabInstance:
     - target: {fileID: 7558833620983243402, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7676533530437054972, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7852161863337469966, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6018,9 +6046,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: SRS_Label
       objectReference: {fileID: 0}
+    - target: {fileID: 8383925483555007420, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383925483555007420, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
+      propertyPath: m_TagString
+      value: Label
+      objectReference: {fileID: 0}
     - target: {fileID: 8589481022243393254, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
-      propertyPath: m_Name
-      value: NoteInput
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
