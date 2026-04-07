@@ -34,8 +34,11 @@ public class ModelSelectorRotate : MonoBehaviour
 
     void TrySelectModel()
     {
-        Ray ray = new Ray(rightController.position, rightController.forward);
-        Debug.DrawRay(rightController.position, rightController.forward * rayDistance, Color.red, 2f);
+        Vector3 origin = rightController.position;
+        Vector3 direction = rightController.TransformDirection(Vector3.forward);
+
+        Ray ray = new Ray(origin, direction);
+        Debug.DrawRay(origin, direction * rayDistance, Color.red, 2f);
 
         RaycastHit hit;
 
@@ -51,3 +54,5 @@ public class ModelSelectorRotate : MonoBehaviour
         }
     }
 }
+
+
