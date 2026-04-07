@@ -10,7 +10,8 @@ public class SaveModelWithLabels : MonoBehaviour
 
     public void Save()
     {
-        string path = Path.Combine(Application.persistentDataPath, "SavedModel");
+        string path = "/storage/emulated/0/Download/SavedModel";
+
         if (!Directory.Exists(path))
             Directory.CreateDirectory(path);
 
