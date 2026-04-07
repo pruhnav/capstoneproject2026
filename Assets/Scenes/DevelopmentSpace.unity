@@ -179,6 +179,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1897225401374976834, guid: f1417b7f4eb4bca428612bcccf50e4f5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f1417b7f4eb4bca428612bcccf50e4f5, type: 3}
       propertyPath: m_Name
       value: CT_test_for_LabelingApp_NoLabels
@@ -940,6 +944,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 47e13e487b78a495583475255673ea46, type: 3}
       propertyPath: m_Name
       value: 04Kneev2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 47e13e487b78a495583475255673ea46, type: 3}
+      propertyPath: m_Name
+      value: knee_model
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4542,7 +4550,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1224553916}
-  - component: {fileID: 1224553917}
   m_Layer: 0
   m_Name: ModelAnchor
   m_TagString: Untagged
@@ -4567,21 +4574,6 @@ Transform:
   - {fileID: 291306005}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1224553917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224553915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46f468a5cda86944b191178715c32da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ModelAnchorRotate
-  rotationSpeed: 120
-  useRightThumbstick: 1
-  deadzone: 0.15
 --- !u!1 &1242041633
 GameObject:
   m_ObjectHideFlags: 0
@@ -6637,6 +6629,54 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &2099017333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2099017335}
+  - component: {fileID: 2099017334}
+  m_Layer: 0
+  m_Name: ModelSelectionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2099017334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099017333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ee632f6060ca5438e689cb67ca61f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModelSelectorRotate
+  rightController: {fileID: 1850357966}
+  rayDistance: 10
+  rotationSpeed: 120
+  deadzone: 0.15
+--- !u!4 &2099017335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099017333}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.25667, y: 0.77888, z: 0.715}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2133155858
 GameObject:
   m_ObjectHideFlags: 0
@@ -6715,3 +6755,4 @@ SceneRoots:
   - {fileID: 88301114}
   - {fileID: 1212028075}
   - {fileID: 124811068}
+  - {fileID: 2099017335}
