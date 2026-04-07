@@ -14,13 +14,12 @@ public class ModelSelectorRotate : MonoBehaviour
 
     void Update()
     {
-        // Press A button to select the model you are pointing at
         if (OVRInput.GetDown(OVRInput.Button.One))
         {
+            Debug.Log("A button pressed");
             TrySelectModel();
         }
 
-        // Rotate selected model with right thumbstick
         if (selectedModel != null)
         {
             Vector2 stickInput = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick);
@@ -36,14 +35,19 @@ public class ModelSelectorRotate : MonoBehaviour
     void TrySelectModel()
     {
         Ray ray = new Ray(rightController.position, rightController.forward);
+        Debug.DrawRay(rightController.position, rightController.forward * rayDistance, Color.red, 2f);
+
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, rayDistance))
         {
+            Debug.Log("Ray hit: " + hit.transform.name);
             selectedModel = hit.transform;
-
             Debug.Log("Selected model: " + selectedModel.name);
+        }
+        else
+        {
+            Debug.Log("Ray hit nothing");
         }
     }
 }
-
