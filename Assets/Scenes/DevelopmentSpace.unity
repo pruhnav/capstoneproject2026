@@ -675,7 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveModelWithLabels
   modelRoot: {fileID: 76756934}
-  labelsParent: {fileID: 0}
+  labelsParent: {fileID: 2062820532}
 --- !u!4 &124811068
 Transform:
   m_ObjectHideFlags: 0
@@ -6537,6 +6537,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
+--- !u!4 &2062820532 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4430923002026986672, guid: aeccc159733e9794da00ccdf54fc6536, type: 3}
+  m_PrefabInstance: {fileID: 2062820531}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2089110258
 GameObject:
   m_ObjectHideFlags: 0
