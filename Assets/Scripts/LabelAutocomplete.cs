@@ -8,9 +8,9 @@ using System.IO;
 public class LabelAutocomplete : MonoBehaviour
 {
     [Header("-- Drag these in from your scene --")]
-    public TMP_InputField searchInputField;       // drag SearchInput here
-    public GameObject suggestionButtonPrefab;      // drag your button prefab here
-    public Transform suggestionsContainer;         // drag SuggestionsPanel here
+    public TMP_InputField searchInputField;
+    public GameObject suggestionButtonPrefab;
+    public Transform suggestionsContainer;
 
     private Trie trie = new Trie();
     private List<GameObject> spawnedButtons = new List<GameObject>();
@@ -18,7 +18,9 @@ public class LabelAutocomplete : MonoBehaviour
     void Start()
     {
         LoadCSV();
+        suggestionsContainer.gameObject.SetActive(false); // hide on start
         searchInputField.onValueChanged.AddListener(OnTyping);
+        searchInputField.onEndEdit.AddListener(OnFinishedTyping); // hide when done
     }
 
     void LoadCSV()
@@ -33,7 +35,6 @@ public class LabelAutocomplete : MonoBehaviour
 
         string[] lines = File.ReadAllLines(path);
 
-        // Skip the first line (header: label_name,category)
         for (int i = 1; i < lines.Length; i++)
         {
             string[] columns = lines[i].Split(',');
@@ -48,15 +49,29 @@ public class LabelAutocomplete : MonoBehaviour
 
     void OnTyping(string input)
     {
-        // Clear old suggestion buttons
+        // Clear old buttons
         foreach (GameObject btn in spawnedButtons)
             Destroy(btn);
         spawnedButtons.Clear();
 
+        // Hide if empty
         if (string.IsNullOrWhiteSpace(input) || input.Length < 1)
+        {
+            suggestionsContainer.gameObject.SetActive(false);
             return;
+        }
 
         List<string> suggestions = trie.GetSuggestions(input);
+
+        // Hide if no matches
+        if (suggestions.Count == 0)
+        {
+            suggestionsContainer.gameObject.SetActive(false);
+            return;
+        }
+
+        // Show panel
+        suggestionsContainer.gameObject.SetActive(true);
 
         // Show max 5 suggestions
         int count = Mathf.Min(suggestions.Count, 5);
@@ -64,22 +79,31 @@ public class LabelAutocomplete : MonoBehaviour
         {
             string word = suggestions[i];
 
-            // Create a button for each suggestion
             GameObject btnObj = Instantiate(suggestionButtonPrefab, suggestionsContainer);
             spawnedButtons.Add(btnObj);
 
-            // Set the button text
             btnObj.GetComponentInChildren<TMP_Text>().text = word;
 
-            // When clicked, fill the input field with this word
             Button btn = btnObj.GetComponent<Button>();
             btn.onClick.AddListener(() =>
             {
                 searchInputField.text = word;
-                // Clear suggestions after picking
-                foreach (GameObject b in spawnedButtons) Destroy(b);
-                spawnedButtons.Clear();
+                HideSuggestions();
             });
         }
+    }
+
+    // Hide suggestions when user finishes typing (presses Enter or clicks away)
+    void OnFinishedTyping(string input)
+    {
+        HideSuggestions();
+    }
+
+    void HideSuggestions()
+    {
+        foreach (GameObject btn in spawnedButtons)
+            Destroy(btn);
+        spawnedButtons.Clear();
+        suggestionsContainer.gameObject.SetActive(false);
     }
 }
