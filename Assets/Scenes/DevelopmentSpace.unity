@@ -994,6 +994,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 47e13e487b78a495583475255673ea46, type: 3}
   m_PrefabInstance: {fileID: 291306002}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &291306006 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1151388028547126963, guid: 47e13e487b78a495583475255673ea46, type: 3}
+  m_PrefabInstance: {fileID: 291306002}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &355920627
 GameObject:
   m_ObjectHideFlags: 0
@@ -3809,6 +3814,7 @@ GameObject:
   m_Component:
   - component: {fileID: 863556538}
   - component: {fileID: 863556539}
+  - component: {fileID: 863556540}
   m_Layer: 0
   m_Name: JoystickRotateManager
   m_TagString: Untagged
@@ -3844,6 +3850,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JoystickModelRotate
   modelToRotate: {fileID: 76756935}
+  rotationSpeed: 120
+  deadzone: 0.15
+--- !u!114 &863556540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863556536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64160b4a79eb9e747a472fbe41d954c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JoystickModelRotate
+  modelToRotate: {fileID: 291306006}
   rotationSpeed: 120
   deadzone: 0.15
 --- !u!1 &962325298
