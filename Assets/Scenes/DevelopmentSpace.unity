@@ -230,6 +230,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f1417b7f4eb4bca428612bcccf50e4f5, type: 3}
   m_PrefabInstance: {fileID: 76756932}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &76756935 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8765578039313461758, guid: f1417b7f4eb4bca428612bcccf50e4f5, type: 3}
+  m_PrefabInstance: {fileID: 76756932}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &85050635
 GameObject:
   m_ObjectHideFlags: 0
@@ -987,11 +992,6 @@ MeshCollider:
 --- !u!4 &291306005 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 47e13e487b78a495583475255673ea46, type: 3}
-  m_PrefabInstance: {fileID: 291306002}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &291306006 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1151388028547126963, guid: 47e13e487b78a495583475255673ea46, type: 3}
   m_PrefabInstance: {fileID: 291306002}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &355920627
@@ -3843,7 +3843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64160b4a79eb9e747a472fbe41d954c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JoystickModelRotate
-  modelToRotate: {fileID: 291306006}
+  modelToRotate: {fileID: 76756935}
   rotationSpeed: 120
   deadzone: 0.15
 --- !u!1 &962325298
