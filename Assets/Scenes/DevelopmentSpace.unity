@@ -218,7 +218,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2906776548726590484, guid: f1417b7f4eb4bca428612bcccf50e4f5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 76756937}
   m_SourcePrefab: {fileID: 100100000, guid: f1417b7f4eb4bca428612bcccf50e4f5, type: 3}
 --- !u!4 &76756933 stripped
 Transform:
@@ -235,6 +238,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8765578039313461758, guid: f1417b7f4eb4bca428612bcccf50e4f5, type: 3}
   m_PrefabInstance: {fileID: 76756932}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &76756936 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2906776548726590484, guid: f1417b7f4eb4bca428612bcccf50e4f5, type: 3}
+  m_PrefabInstance: {fileID: 76756932}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &76756937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76756936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64160b4a79eb9e747a472fbe41d954c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JoystickModelRotate
+  modelToRotate: {fileID: 76756935}
+  rotationSpeed: 120
+  deadzone: 0.15
 --- !u!1 &85050635
 GameObject:
   m_ObjectHideFlags: 0
