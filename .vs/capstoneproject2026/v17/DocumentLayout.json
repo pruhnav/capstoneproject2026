@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\PSU Libraries\\Documents\\GitHub\\capstoneproject2026\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PSU Libraries\\Documents\\GitHub\\capstoneproject2026\\Assets\\Scripts\\ModelLoader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\ModelLoader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PSU Libraries\\Documents\\GitHub\\capstoneproject2026\\Assets\\Scripts\\LoadButtonHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\LoadButtonHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PSU Libraries\\Documents\\GitHub\\capstoneproject2026\\Assets\\Scripts\\CameraZoomXR.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\CameraZoomXR.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -19,6 +27,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ModelLoader.cs",
+              "DocumentMoniker": "C:\\Users\\PSU Libraries\\Documents\\GitHub\\capstoneproject2026\\Assets\\Scripts\\ModelLoader.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ModelLoader.cs",
+              "ToolTip": "C:\\Users\\PSU Libraries\\Documents\\GitHub\\capstoneproject2026\\Assets\\Scripts\\ModelLoader.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ModelLoader.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAiwCkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T21:39:27.11Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoadButtonHandler.cs",
+              "DocumentMoniker": "C:\\Users\\PSU Libraries\\Documents\\GitHub\\capstoneproject2026\\Assets\\Scripts\\LoadButtonHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LoadButtonHandler.cs",
+              "ToolTip": "C:\\Users\\PSU Libraries\\Documents\\GitHub\\capstoneproject2026\\Assets\\Scripts\\LoadButtonHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LoadButtonHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T21:36:17.541Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "CameraZoomXR.cs",
               "DocumentMoniker": "C:\\Users\\PSU Libraries\\Documents\\GitHub\\capstoneproject2026\\Assets\\Scripts\\CameraZoomXR.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CameraZoomXR.cs",
