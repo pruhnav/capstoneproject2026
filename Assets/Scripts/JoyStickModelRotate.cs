@@ -8,12 +8,15 @@ public class JoystickModelRotate : MonoBehaviour
 
     void Update()
     {
+        if (modelToRotate == null) return;
+
+        // RIGHT joystick (Secondary Thumbstick)
         Vector2 stickInput = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick);
         float xInput = stickInput.x;
 
-        if (Mathf.Abs(xInput) > deadzone && modelToRotate != null)
+        if (Mathf.Abs(xInput) > deadzone)
         {
-            modelToRotate.Rotate(0f, -xInput * rotationSpeed * Time.deltaTime, 0f, Space.Self);
+            modelToRotate.Rotate(0f, -xInput * rotationSpeed * Time.deltaTime, 0f, Space.World);
         }
     }
 }
