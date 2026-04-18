@@ -17,7 +17,7 @@ public class Trie
         if (string.IsNullOrWhiteSpace(word)) return;
 
         string original = word.Trim();
-        string lower = original.ToLower();
+        string lower = original.ToLowerInvariant();
 
         // Insert into trie normally
         TrieNode current = root;
