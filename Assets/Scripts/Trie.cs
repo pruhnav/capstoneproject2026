@@ -39,7 +39,7 @@ public class Trie
         List<string> results = new List<string>();
         if (string.IsNullOrWhiteSpace(prefix)) return results;
 
-        prefix = prefix.Trim().ToLower();
+        prefix = prefix.Trim().ToLowerInvariant();
 
         // 1. Normal prefix search (e.g. "pat" → "Patella")
         TrieNode current = root;
