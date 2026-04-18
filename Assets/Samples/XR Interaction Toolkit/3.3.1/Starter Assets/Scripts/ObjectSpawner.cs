@@ -235,7 +235,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
             if (m_ApplyRandomAngleAtSpawn)
             {
-                var randomRotation = Random.Range(-m_SpawnAngleRange, m_SpawnAngleRange);
+                var randomRotation = UnityEngine.Random.Range(-m_SpawnAngleRange, m_SpawnAngleRange);
                 newObject.transform.Rotate(Vector3.up, randomRotation);
             }
 
