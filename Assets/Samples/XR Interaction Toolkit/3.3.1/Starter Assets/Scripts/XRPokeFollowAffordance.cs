@@ -269,6 +269,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 case PokeAxis.NegativeZ:
                     rotatedDepthEvaluationAxis = transform.forward;
                     break;
+                case
+                    break;
             }
 
             switch (pokeThresholdData.pokeDirection)
@@ -277,6 +279,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 case PokeAxis.Y:
                 case PokeAxis.Z:
                     rotatedDepthEvaluationAxis = -rotatedDepthEvaluationAxis;
+                    break;
+                case
                     break;
             }
 
