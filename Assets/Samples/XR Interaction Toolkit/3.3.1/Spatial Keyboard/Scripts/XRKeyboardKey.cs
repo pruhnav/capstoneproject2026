@@ -320,7 +320,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.SpatialKeyboard
                 if (m_AudioSource.isPlaying)
                     m_AudioSource.Stop();
 
-                float pitchVariance = Random.Range(0.95f, 1.05f);
+                float pitchVariance = UnityEngine.Random.Range(0.95f, 1.05f);
                 m_AudioSource.pitch = pitchVariance;
                 m_AudioSource.Play();
             }
