@@ -110,6 +110,6 @@ public class Trie
             if (!string.IsNullOrWhiteSpace(w))
                 abbr += w[0];
         }
-        return abbr.ToLower();
+        return abbr.ToLowerInvariant();
     }
 }
