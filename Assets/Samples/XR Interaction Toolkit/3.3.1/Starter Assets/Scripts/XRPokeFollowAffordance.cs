@@ -269,7 +269,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 case PokeAxis.NegativeZ:
                     rotatedDepthEvaluationAxis = transform.forward;
                     break;
-                default:
+                case
                     break;
             }
 
@@ -280,7 +280,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 case PokeAxis.Z:
                     rotatedDepthEvaluationAxis = -rotatedDepthEvaluationAxis;
                     break;
-                default:
+                case
                     break;
             }
 
