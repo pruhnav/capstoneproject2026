@@ -252,12 +252,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 76756936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64160b4a79eb9e747a472fbe41d954c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 263aa67eb582b7948a438e6fd4c58a4c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::JoystickModelRotate
-  modelToRotate: {fileID: 76756935}
+  m_EditorClassIdentifier: Assembly-CSharp::ModelMoveAndRotate
+  modelToControl: {fileID: 76756935}
+  playerCamera: {fileID: 1317862226}
   rotationSpeed: 120
-  deadzone: 0.15
+  rotationDeadzone: 0.15
+  moveSpeed: 2
+  moveDeadzone: 0.1
+  minDistance: 0.3
+  maxDistance: 3
 --- !u!1 &85050635
 GameObject:
   m_ObjectHideFlags: 0
