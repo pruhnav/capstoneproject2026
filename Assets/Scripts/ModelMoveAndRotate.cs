@@ -25,20 +25,20 @@ public class ModelMoveAndRotate : MonoBehaviour
     }
 
     void RotateModel()
-    {
-        Vector2 rightStick = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick);
-        float xInput = rightStick.x;
+{
+    Vector2 rightStick = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick);
+    float xInput = rightStick.x;
 
-        if (Mathf.Abs(xInput) > rotationDeadzone)
-        {
-            modelToControl.Rotate(
-                0f,
-                -xInput * rotationSpeed * Time.deltaTime,
-                0f,
-                Space.World
-            );
-        }
+    if (Mathf.Abs(xInput) > rotationDeadzone)
+    {
+        modelToControl.Rotate(
+            0f,
+            -xInput * rotationSpeed * Time.deltaTime,
+            0f,
+            Space.Self
+        );
     }
+}
 
     void MoveModel()
     {
