@@ -1,29 +1,35 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class JoystickModelRotate : MonoBehaviour
 {
     [SerializeField] private Transform modelToRotate;
+    [SerializeField] private InputActionProperty rightJoystickAction;
+
     [SerializeField] private float rotationSpeed = 120f;
     [SerializeField] private float deadzone = 0.15f;
 
+    void OnEnable()
+    {
+        rightJoystickAction.action.Enable();
+    }
+
     void Update()
     {
-        if (modelToRotate == null)
-        {
-            Debug.LogWarning("Model To Rotate is not assigned.");
-            return;
-        }
+        if (modelToRotate == null) return;
 
-        Vector2 rightStick = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick);
-        float xInput = rightStick.x;
+        Vector2 input = rightJoystickAction.action.ReadValue<Vector2>();
+        float xInput = input.x;
+
+        Debug.Log("X Input: " + xInput);
 
         if (Mathf.Abs(xInput) > deadzone)
         {
-            // Rotate around its OWN CENTER (Earth-like rotation)
-            modelToRotate.RotateAround(
-                modelToRotate.position,   // pivot point (center)
-                Vector3.up,               // Y-axis (vertical)
-                -xInput * rotationSpeed * Time.deltaTime
+            modelToRotate.Rotate(
+                0f,
+                -xInput * rotationSpeed * Time.deltaTime,
+                0f,
+                Space.Self
             );
         }
     }

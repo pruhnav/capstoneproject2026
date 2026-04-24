@@ -256,6 +256,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JoystickModelRotate
   modelToRotate: {fileID: 76756935}
+  rightJoystickAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Right Joystick
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: eca5bb7e-4389-42ac-8f39-4e8a39388a06
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
   rotationSpeed: 120
   deadzone: 0.15
 --- !u!1 &85050635
@@ -3511,6 +3523,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JoystickModelRotate
   modelToRotate: {fileID: 76756935}
+  rightJoystickAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Right Joystick
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: f9659e64-5b1d-4200-89ce-dd109ec3ecfa
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
   rotationSpeed: 120
   deadzone: 0.15
 --- !u!1 &1039763706
