@@ -221,9 +221,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2906776548726590484, guid: f1417b7f4eb4bca428612bcccf50e4f5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 76756938}
-    - targetCorrespondingSourceObject: {fileID: 2906776548726590484, guid: f1417b7f4eb4bca428612bcccf50e4f5, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 76756939}
   m_SourcePrefab: {fileID: 100100000, guid: f1417b7f4eb4bca428612bcccf50e4f5, type: 3}
 --- !u!4 &76756933 stripped
@@ -246,26 +243,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2906776548726590484, guid: f1417b7f4eb4bca428612bcccf50e4f5, type: 3}
   m_PrefabInstance: {fileID: 76756932}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &76756938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 76756936}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 263aa67eb582b7948a438e6fd4c58a4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ModelMoveAndRotate
-  modelToControl: {fileID: 76756935}
-  playerCamera: {fileID: 1317862226}
-  rotationSpeed: 120
-  rotationDeadzone: 0.15
-  moveSpeed: 2
-  moveDeadzone: 0.1
-  minDistance: 0.3
-  maxDistance: 3
 --- !u!114 &76756939
 MonoBehaviour:
   m_ObjectHideFlags: 0
