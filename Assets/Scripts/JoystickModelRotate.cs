@@ -21,16 +21,32 @@ public class JoystickModelRotate : MonoBehaviour
         Vector2 input = rightJoystickAction.action.ReadValue<Vector2>();
         float xInput = input.x;
 
-        Debug.Log("X Input: " + xInput);
-
         if (Mathf.Abs(xInput) > deadzone)
         {
-            modelToRotate.Rotate(
-                0f,
-                -xInput * rotationSpeed * Time.deltaTime,
-                0f,
-                Space.Self
+            Vector3 visualCenter = GetVisualCenter(modelToRotate);
+
+            modelToRotate.RotateAround(
+                visualCenter,
+                Vector3.up,
+                -xInput * rotationSpeed * Time.deltaTime
             );
         }
+    }
+
+    Vector3 GetVisualCenter(Transform target)
+    {
+        Renderer[] renderers = target.GetComponentsInChildren<Renderer>();
+
+        if (renderers.Length == 0)
+            return target.position;
+
+        Bounds bounds = renderers[0].bounds;
+
+        for (int i = 1; i < renderers.Length; i++)
+        {
+            bounds.Encapsulate(renderers[i].bounds);
+        }
+
+        return bounds.center;
     }
 }
