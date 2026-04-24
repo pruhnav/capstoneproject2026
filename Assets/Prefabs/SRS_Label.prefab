@@ -26,12 +26,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579077017320727948}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.05, z: 0}
   m_LocalScale: {x: 0.002, y: 0.05, z: 0.002}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4430923002026986672}
+  m_Father: {fileID: 84494523029299008}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1002139164891794102
 MeshFilter:
@@ -90,6 +90,39 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2037042360751389928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 84494523029299008}
+  m_Layer: 6
+  m_Name: PopupUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &84494523029299008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037042360751389928}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6764136144492220420}
+  - {fileID: 5827726307150188119}
+  m_Father: {fileID: 4430923002026986672}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2279824557048348755
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,10 +419,10 @@ RectTransform:
   - {fileID: 7689934353780389704}
   m_Father: {fileID: 5827726307150188119}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 125, y: -22.5}
+  m_SizeDelta: {x: 250, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1781563095591462685
 CanvasRenderer:
@@ -656,6 +689,7 @@ GameObject:
   - component: {fileID: 2402284677492561433}
   - component: {fileID: 4291878832293073637}
   - component: {fileID: 1518650031474255501}
+  - component: {fileID: 6621474308389157606}
   m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
@@ -756,6 +790,35 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6621474308389157606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3707559791905067493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7178458817701094075}
+          m_TargetAssemblyTypeName: PinToggler, Assembly-CSharp
+          m_MethodName: Toggle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &4219716903030342572
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,7 +1203,7 @@ RectTransform:
   - {fileID: 5547259698014548980}
   - {fileID: 7852161863337469966}
   - {fileID: 7558833620983243402}
-  m_Father: {fileID: 4430923002026986672}
+  m_Father: {fileID: 84494523029299008}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1434,6 +1497,7 @@ GameObject:
   - component: {fileID: 4430923002026986672}
   - component: {fileID: 2227014778927454223}
   - component: {fileID: 1119314232207744753}
+  - component: {fileID: 7178458817701094075}
   m_Layer: 6
   m_Name: SRS_Label
   m_TagString: Label
@@ -1455,8 +1519,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8056060843699661154}
-  - {fileID: 6764136144492220420}
-  - {fileID: 5827726307150188119}
+  - {fileID: 84494523029299008}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2227014778927454223
@@ -1572,6 +1635,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRenderer: {fileID: 4291878832293073637}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+--- !u!114 &7178458817701094075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8383925483555007420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aadf852a114853447b1ae845324b596a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PinToggler
+  uiToToggle: {fileID: 2037042360751389928}
 --- !u!1 &8589481022243393254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,10 +1685,10 @@ RectTransform:
   - {fileID: 9112410049842396465}
   m_Father: {fileID: 5827726307150188119}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 125, y: -77.5}
+  m_SizeDelta: {x: 250, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6205047698032461786
 CanvasRenderer:

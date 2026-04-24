@@ -233,11 +233,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f1417b7f4eb4bca428612bcccf50e4f5, type: 3}
   m_PrefabInstance: {fileID: 76756932}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &76756935 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8765578039313461758, guid: f1417b7f4eb4bca428612bcccf50e4f5, type: 3}
-  m_PrefabInstance: {fileID: 76756932}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &76756936 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2906776548726590484, guid: f1417b7f4eb4bca428612bcccf50e4f5, type: 3}
@@ -255,21 +250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64160b4a79eb9e747a472fbe41d954c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JoystickModelRotate
-  modelToRotate: {fileID: 76756935}
-  rightJoystickAction:
-    m_UseReference: 0
-    m_Action:
-      m_Name: Right Joystick
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: eca5bb7e-4389-42ac-8f39-4e8a39388a06
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 0}
-  rotationSpeed: 120
-  deadzone: 0.15
 --- !u!1 &85050635
 GameObject:
   m_ObjectHideFlags: 0
@@ -5285,6 +5265,7 @@ GameObject:
   - component: {fileID: 1800650832}
   - component: {fileID: 1800650831}
   - component: {fileID: 1800650830}
+  - component: {fileID: 1800650833}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -5361,6 +5342,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1800650833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800650829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df61a9a13528fd4f9365c233cb23bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.UI.TrackedDevicePhysicsRaycaster
+  m_RaycastTriggerInteraction: 1
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 10
+  m_EventCamera: {fileID: 0}
 --- !u!1001 &1823102625
 PrefabInstance:
   m_ObjectHideFlags: 0
