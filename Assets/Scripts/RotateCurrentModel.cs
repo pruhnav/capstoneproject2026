@@ -19,7 +19,6 @@ public class RotateCurrentModel : MonoBehaviour
 
     void Update()
     {
-        // Step 1: find model automatically
         if (currentModel == null)
         {
             GameObject anchor = GameObject.Find("ModelAnchor");
@@ -31,18 +30,15 @@ public class RotateCurrentModel : MonoBehaviour
 
         if (currentModel == null) return;
 
-        // Step 2: read joystick
         Vector2 input = rightJoystick.action.ReadValue<Vector2>();
         float x = input.x;
 
-        // Step 3: rotate
         if (Mathf.Abs(x) > deadzone)
         {
             currentModel.Rotate(
-                0f,
+                Vector3.up,
                 -x * rotationSpeed * Time.deltaTime,
-                0f,
-                Space.Self
+                Space.World
             );
         }
     }
