@@ -6,7 +6,7 @@ public class LocalOBJLoader : MonoBehaviour
 {
     public Transform modelAnchor;
 
-    private string folderPath = "/storage/emulated/0/Download/AnatomyModels/";
+    private string folderPath = "/storage/emulated/0/Download/SavedModel/";
 
     public void LoadFirstOBJ()
     {
