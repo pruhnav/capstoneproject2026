@@ -3,10 +3,7 @@ using UnityEngine.InputSystem;
 
 public class RotateCurrentModel : MonoBehaviour
 {
-    [Header("Joystick Input")]
     [SerializeField] private InputActionProperty rightJoystick;
-
-    [Header("Rotation")]
     [SerializeField] private float rotationSpeed = 120f;
     [SerializeField] private float deadzone = 0.1f;
 
@@ -35,11 +32,30 @@ public class RotateCurrentModel : MonoBehaviour
 
         if (Mathf.Abs(x) > deadzone)
         {
-            currentModel.Rotate(
+            Vector3 center = GetModelCenter(currentModel);
+
+            currentModel.RotateAround(
+                center,
                 Vector3.up,
-                -x * rotationSpeed * Time.deltaTime,
-                Space.World
+                -x * rotationSpeed * Time.deltaTime
             );
         }
+    }
+
+    Vector3 GetModelCenter(Transform model)
+    {
+        Renderer[] renderers = model.GetComponentsInChildren<Renderer>();
+
+        if (renderers.Length == 0)
+            return model.position;
+
+        Bounds bounds = renderers[0].bounds;
+
+        foreach (Renderer r in renderers)
+        {
+            bounds.Encapsulate(r.bounds);
+        }
+
+        return bounds.center;
     }
 }
