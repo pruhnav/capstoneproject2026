@@ -81,6 +81,7 @@ public class LabelAutocomplete : MonoBehaviour
             GameObject btnObj = Instantiate(suggestionButtonPrefab, suggestionsContainer);
             spawnedButtons.Add(btnObj);
 
+            btnObj.AddComponent<TrackedDeviceGraphicRaycaster>();
             btnObj.GetComponentInChildren<TMP_Text>().text = word;
 
             Button btn = btnObj.GetComponent<Button>();
