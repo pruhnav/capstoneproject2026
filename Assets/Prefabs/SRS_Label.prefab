@@ -1737,7 +1737,7 @@ MonoBehaviour:
   m_UseSceneKeyboard: 0
   m_UpdateOnKeyPress: 1
   m_AlwaysObserveKeyboard: 0
-  m_MonitorInputFieldCharacterLimit: 0
+  m_MonitorInputFieldCharacterLimit: 1
   m_ClearTextOnSubmit: 0
   m_ClearTextOnOpen: 0
   m_HideKeyboardOnDisable: 1

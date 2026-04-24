@@ -19,8 +19,7 @@ public class LabelAutocomplete : MonoBehaviour
     {
         LoadCSV();
         suggestionsContainer.gameObject.SetActive(false); // hide on start
-        searchInputField.onValueChanged.AddListener(OnTyping);
-        searchInputField.onEndEdit.AddListener(OnFinishedTyping); // hide when done
+        searchInputField.onValueChanged.AddListener(OnTyping); // hide when done
     }
 
     void LoadCSV()
