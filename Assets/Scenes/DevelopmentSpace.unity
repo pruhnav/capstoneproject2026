@@ -3488,6 +3488,7 @@ GameObject:
   m_Component:
   - component: {fileID: 863556538}
   - component: {fileID: 863556539}
+  - component: {fileID: 863556540}
   m_Layer: 0
   m_Name: JoystickRotateManager
   m_TagString: Untagged
@@ -3544,6 +3545,43 @@ MonoBehaviour:
     m_Reference: {fileID: 0}
   rotationSpeed: 120
   deadzone: 0.1
+--- !u!114 &863556540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863556536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc15c2bd435f6d4eb80955016f0cb78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoveModelCloserFarther
+  leftJoystick:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Left Joystick
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: e2b69945-d340-41e0-9f60-885be6dffd19
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 510b7be3-7c13-49c9-a9d0-88e1efb5ff84
+        m_Path: <XRController>{LeftHand}/thumbstick
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Left Joystick
+        m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  playerCamera: {fileID: 0}
+  moveSpeed: 2
+  deadzone: 0.1
+  minDistance: 0.3
+  maxDistance: 3
 --- !u!1 &1039763706
 GameObject:
   m_ObjectHideFlags: 0
